@@ -1,5 +1,5 @@
 import useLang from "@/lib/hooks/useLang";
-import translations from "@/locale";
+import { translations } from "@/locale";
 import { SiDiscord, SiTelegram } from "react-icons/si";
 
 // TODO: plz update the links
