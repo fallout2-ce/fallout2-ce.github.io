@@ -9,7 +9,7 @@ import {
 } from "react-router";
 import "@/index.css";
 import App from "@/App.tsx";
-import ErrorBoundary from "./ErrorBoundary";
+import ErrorBoundary from "@/ErrorBoundary";
 
 /* eslint-disable react-refresh/only-export-components */
 const NotFound = () => {
