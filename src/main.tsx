@@ -8,8 +8,10 @@ import {
   useLocation,
 } from "react-router";
 import "@/index.css";
-import App from "@/App.tsx";
+import App from "@/App";
 import ErrorBoundary from "@/ErrorBoundary";
+import Header from "@/components/Header";
+import Footer from "./components/Footer";
 
 /* eslint-disable react-refresh/only-export-components */
 const NotFound = () => {
@@ -33,7 +35,13 @@ const Layout = () => {
         data-role="layout-overlay"
         className="absolute inset-0 bg-black/60"
       />
-      <Outlet />
+      <div className="relative z-10 flex flex-col min-h-[100dvh] w-full m-0 p-0">
+        <Header />
+        <main className="w-full flex-1 flex justify-center">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };

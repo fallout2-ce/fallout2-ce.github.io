@@ -1,8 +1,8 @@
 function App() {
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
+    <div className="w-full max-w-4xl p-4 lg:my-8">
+      <h1>Title</h1>
+    </div>
   );
 }
 
