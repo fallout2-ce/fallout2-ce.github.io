@@ -8,12 +8,12 @@ import { useEffect, useMemo } from "react";
 
 const getLangFromSys = (): Lang => {
   const navLang = navigator.language;
-  const langs = SupportedLangs.filter((l) => l != "sys");
+  const langs = SupportedLangs.filter((l) => l != "System");
   return langs.find((l) => navLang.startsWith(l)) || "en";
 };
 
 const resolveLang = (lang: LangWithSys): Lang => {
-  return lang === "sys" ? getLangFromSys() : lang;
+  return lang === "System" ? getLangFromSys() : lang;
 };
 
 const useLang = () => {
