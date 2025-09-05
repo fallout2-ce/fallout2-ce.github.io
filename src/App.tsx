@@ -17,7 +17,7 @@ function App() {
       <div className="flex w-full lg:w-1/2 gap-6">
         <a
           className="w-full flex-1"
-          href="https://fallout2-ce.github.io/fallout2-ce"
+          href=" https://fallout-nevada.ru"
           target="_blank"
           rel="noopener noreferrer"
         >
