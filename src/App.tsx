@@ -7,10 +7,10 @@ function App() {
   const { currLang } = useLang();
   return (
     <div className="w-full max-w-4xl p-4 lg:my-8 gap-8 flex flex-col">
-      <h1 className="text-primary text-5xl lg:text-6xl  font-extrabold italic max-w-2/3 orbitron tracking-tighter">
+      <h1 className="text-primary text-5xl lg:text-6xl  font-extrabold italic max-w-2/3 font-orbitron tracking-tighter">
         {translations[currLang].title}
       </h1>
-      <p className="text-2xl font-bold italic">
+      <p className="text-2xl font-bold italic font-orbitron">
         {translations[currLang].subtitle}
       </p>
       <Introduction />
