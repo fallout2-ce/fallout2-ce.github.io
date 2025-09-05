@@ -6,9 +6,7 @@ const Introduction = () => {
   const { currLang } = useLang();
   return (
     <div>
-      <h3 className="font-semibold orbitron">
-        {translations[currLang].features}:
-      </h3>
+      <h3 className="font-semibold">{translations[currLang].features}:</h3>
       <ScrollArea className="mt-2 relative">
         <div className="ml-2">
           <ul className="flex flex-col gap-2 text-base text-muted-foreground list-disc w-full p-4 max-h-[5.5rem] lg:max-h-[8rem]">
