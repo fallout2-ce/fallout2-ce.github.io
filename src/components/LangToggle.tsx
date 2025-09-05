@@ -32,7 +32,7 @@ const LangToggle = () => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost">
-          <Globe className="h-6 w-6" />
+          <Globe />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

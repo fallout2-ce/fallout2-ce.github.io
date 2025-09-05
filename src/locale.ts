@@ -12,7 +12,7 @@ const translations: Record<Lang, Record<TranslationKey, string>> = {
   en: {
     developedBy: "Developed with ❤️ by",
     title: "Fallout 2 Community Edition",
-    subtitle: "A fully working re-implementation of Fallout 2",
+    subtitle: "A fully working re-implementation",
     webDemo: "Try in browser",
     download: "Download",
     features: "Features",
