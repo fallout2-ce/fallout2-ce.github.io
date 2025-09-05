@@ -1,10 +1,10 @@
 import { atomWithStorage } from "jotai/utils";
 
-const SupportedLangs = ["sys", "en"] as const;
+const SupportedLangs = ["System", "en"] as const;
 type LangWithSys = (typeof SupportedLangs)[number];
-type Lang = Exclude<LangWithSys, "sys">;
+type Lang = Exclude<LangWithSys, "System">;
 
-const langAtom = atomWithStorage<LangWithSys>("lang", "sys");
+const langAtom = atomWithStorage<LangWithSys>("lang", "System");
 
 export default langAtom;
 
