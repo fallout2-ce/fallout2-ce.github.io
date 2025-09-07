@@ -58,6 +58,9 @@ jobs:
         env:
           SITE_BASE:  ${{ steps.set-path.outputs.SITE_BASE }}
 
+      - name: Place hash file
+        run: echo "$GITHUB_SHA" > dist/.sitehash
+
       - name: Install rsync (required for the next step)
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
         run: |
@@ -85,3 +88,22 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           env_url: https://fallout2-ce.github.io/PR-${{ github.event.pull_request.number }}/
 
+      - name: Check that site is deployed
+        run: |
+          URL="$SITE_ORIGIN""$SITE_BASE"".sitehash"
+          echo "Expecting $GITHUB_SHA from $URL"
+          for i in `seq 1 60`; do
+            got="$(curl -fsSL --max-time 10 "$URL" | tr -d '\r\n' || true)"
+            if [ "$got" = "$GITHUB_SHA" ]; then
+              echo "✅ Match on attempt $i: ${got}"
+              exit 0
+            fi
+            echo "Received $got, waiting"
+            sleep 5
+          done
+          exit 1
+
+        env:
+          SITE_ORIGIN: https://fallout2-ce.github.io
+          SITE_BASE: ${{ steps.set-path.outputs.SITE_BASE }}
+       
