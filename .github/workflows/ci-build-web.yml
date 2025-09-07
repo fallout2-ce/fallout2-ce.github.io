@@ -9,8 +9,8 @@ on:
       - synchronize
 
 jobs:
-  build_webassembly_version:
-    name: Build webassembly version
+  build_web:
+    name: Build web
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
