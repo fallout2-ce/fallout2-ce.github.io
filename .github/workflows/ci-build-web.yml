@@ -59,7 +59,7 @@ jobs:
           SITE_BASE:  ${{ steps.set-path.outputs.SITE_BASE }}
 
       - name: Place hash file
-        run: echo "$GITHUB_SHA" > dist/.sitehash
+        run: echo "$GITHUB_SHA" > dist/site_hash.txt
 
       - name: Install rsync (required for the next step)
         if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository)
@@ -90,7 +90,7 @@ jobs:
 
       - name: Check that site is deployed
         run: |
-          URL="$SITE_ORIGIN""$SITE_BASE"".sitehash"
+          URL="$SITE_ORIGIN""$SITE_BASE""site_hash.txt"
           echo "Expecting $GITHUB_SHA from $URL"
           for i in `seq 1 60`; do
             got="$(curl -fsSL --max-time 10 "$URL" | tr -d '\r\n' || true)"
