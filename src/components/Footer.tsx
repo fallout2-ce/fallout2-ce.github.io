@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="w-full max-w-4xl justify-between p-4 items-center flex flex-col lg:flex-row gap-2 my-2 text-sm text-muted-foreground">
         <div className="flex gap-6">
           <a
-            href="https://discord.gg/"
+            href="https://discord.gg/qygBRUXuY6"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:scale-105"
@@ -19,7 +19,7 @@ const Footer = () => {
             <SiDiscord className="h-6 w-6" />
           </a>
           <a
-            href="https://t.me/"
+            href="https://t.me/+ssuTXrmgH4wzMGRi"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:scale-105"
