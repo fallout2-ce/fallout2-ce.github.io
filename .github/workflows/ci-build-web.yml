@@ -77,18 +77,6 @@ jobs:
           clean: false
           single-commit: true
 
-      - name: Update deployment status
-        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-        uses: bobheadxi/deployments@v1
-        with:
-          step: finish
-          status: success
-          debug: true
-          env: ${{ steps.deployment.outputs.env }}
-          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
-          ref: ${{ github.event.pull_request.head.sha }}
-          env_url: https://fallout2-ce.github.io/PR-${{ github.event.pull_request.number }}/
-
       - name: Check that site is deployed
         run: |
           URL="$SITE_ORIGIN""$SITE_BASE""site_hash.txt"
@@ -103,8 +91,21 @@ jobs:
             sleep 5
           done
           exit 1
-
         env:
           SITE_ORIGIN: https://fallout2-ce.github.io
           SITE_BASE: ${{ steps.set-path.outputs.SITE_BASE }}
+
+      - name: Update deployment status
+        if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+        uses: bobheadxi/deployments@v1
+        with:
+          step: finish
+          status: success
+          debug: true
+          env: ${{ steps.deployment.outputs.env }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          env_url: https://fallout2-ce.github.io/PR-${{ github.event.pull_request.number }}/
+
+
        
