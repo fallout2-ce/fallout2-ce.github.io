@@ -11,8 +11,8 @@ type TranslationKey =
 const translations: Record<Lang, Record<TranslationKey, string>> = {
   en: {
     developedBy: "Developed with ❤️ by",
-    title: "Fallout 2 Community Edition",
-    subtitle: "A fully working re-implementation",
+    title: "FOR:CE",
+    subtitle: "A fully working re-implementation for classic FO1 and FO2 games",
     webDemo: "Try in browser",
     download: "Download",
     features: "Features",
